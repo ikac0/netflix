@@ -80,15 +80,14 @@ export const Submit = styled.button`
   background: #e50914;
   border-radius: 4px;
   font-size: 16px;
-  font-weight: boldl;
+  font-weight: bold;
   margin: 24px 0 12px;
   padding: 16px;
   border: 0;
   color: white;
-  cursor: pointerl
+  cursor: pointer;
 
   &:disabled {
-      opacity: 0.5;
+    opacity: 0.5;
   }
-
 `;
