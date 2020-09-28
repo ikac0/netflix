@@ -31,12 +31,10 @@ export function ProtectedRoute({ user, children, ...other }) {
       {...other}
       render={({ location }) => {
         if (user) {
-          console.log("yes a user");
           return children;
         }
 
         if (!user) {
-          console.log("not a user");
           return (
             <Redirect
               to={{
