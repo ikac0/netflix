@@ -10,5 +10,3 @@ export default function Browse() {
 
   return <BrowseContainer slides={slides} />;
 }
-
-objavi ja utre na github
