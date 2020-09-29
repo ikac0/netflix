@@ -44,7 +44,7 @@ export const Picture = styled.img`
 
 export const Item = styled.li`
   max-height: 200px;
-  max-width: 200px;
+  max-width: 200px;q
   list-style-type: none;
   text-align: center;
   margin-right: 30px;

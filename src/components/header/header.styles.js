@@ -13,7 +13,7 @@ export const Background = styled.div`
   }
 `;
 
-export const Frame = styled.div``;
+// export const Frame = styled.div``;
 
 export const Container = styled.div`
   display: flex;
@@ -59,5 +59,16 @@ export const ButtonLink = styled(ReactRouterLink)`
 
   &:hover {
     background-color: #f40612;
+  }
+`;
+
+export const Feature = styled(Container)`
+  padding: 150px 0 500px 0;
+  flex-direction: column;
+  align-items: normal;
+  width: 50%;
+
+  @media (max-width: 1100px) {
+    display: none;
   }
 `;
