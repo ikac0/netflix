@@ -7,6 +7,9 @@ import {
   Container,
   Logo,
   Feature,
+  FeatureCallOut,
+  Text,
+  TextLink,
 } from "./header.styles";
 
 export default function Header({ bg = true, children, ...otherProps }) {
@@ -15,6 +18,21 @@ export default function Header({ bg = true, children, ...otherProps }) {
 
 Header.Feature = function HeaderFeature({ children, ...otherProps }) {
   return <Feature {...otherProps}>{children}</Feature>;
+};
+
+Header.FeatureCallOut = function HeaderFeatureCallOut({
+  children,
+  ...otherProps
+}) {
+  return <FeatureCallOut {...otherProps}>{children}</FeatureCallOut>;
+};
+
+Header.Text = function HeaderText({ children, ...otherProps }) {
+  return <Text {...otherProps}>{children}</Text>;
+};
+
+Header.TextLink = function HeaderTextLink({ children, ...otherProps }) {
+  return <TextLink {...otherProps}>{children}</TextLink>;
 };
 
 Header.Frame = function HeaderFrame({ children, ...otherProps }) {

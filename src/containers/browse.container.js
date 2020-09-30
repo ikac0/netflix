@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import { SelectProfileContainer } from "./profiles.container";
 import { FirebaseContext } from "../context/firebase";
 import { Loading, Header } from "../components";
+import * as ROUTES from "../constants/routes";
+import logo from "../logo.svg";
 
 export function BrowseContainer({ slides }) {
   const [profile, setProfile] = useState({});
@@ -18,9 +20,22 @@ export function BrowseContainer({ slides }) {
   return profile.displayName ? (
     <>
       {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
-      <Header src="joker1">
+
+      <Header src="joker1" dontShowOnSmallViewPort>
+        <Header.Frame>
+          <Header.Logo to={ROUTES.HOME} src={logo} alt="netflix logo" />
+          <Header.TextLink>Series</Header.TextLink>
+          <Header.TextLink>Films</Header.TextLink>
+        </Header.Frame>
         <Header.Feature>
-          <Header.Text></Header.Text>
+          <Header.FeatureCallOut>Watch Joker Now</Header.FeatureCallOut>
+          <Header.Text>
+            Forever alone in a crowd, failed comedian Arthur Fleck seeks
+            connection as he walks the streets of Gotham City. Arthur wears two
+            masks == the one he paints for his day as a clown, and the guise he
+            projects in a futile attempt to feel like he's part of the world
+            around him.
+          </Header.Text>
         </Header.Feature>
       </Header>
     </>

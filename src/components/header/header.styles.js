@@ -13,8 +13,6 @@ export const Background = styled.div`
   }
 `;
 
-// export const Frame = styled.div``;
-
 export const Container = styled.div`
   display: flex;
   margin: 0 56px;
@@ -41,6 +39,14 @@ export const Logo = styled.img`
     height: 45px;
     width: 167px;
   }
+`;
+
+export const Text = styled.p`
+  color: white;
+  font-size: 22px;
+  line-height: normal;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+  margin: 0;
 `;
 
 export const ButtonLink = styled(ReactRouterLink)`
@@ -70,5 +76,31 @@ export const Feature = styled(Container)`
 
   @media (max-width: 1100px) {
     display: none;
+  }
+`;
+
+export const FeatureCallOut = styled.h2`
+  color: white;
+  font-size: 50px;
+  line-height: normal;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+  margin 0;
+  margin-bottom: 20px;
+`;
+
+export const TextLink = styled.p`
+  color: white;
+  text-decoration: none;
+  margin-right: 30px;
+  font-weight: ${({ active }) => (active === "true" ? "700" : "normal")};
+  cursor: pointer;
+
+  &:hover {
+    font-weight: bold;
+  }
+
+  &:last-of-type {
+    margin-right: 0;
   }
 `;
