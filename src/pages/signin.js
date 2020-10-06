@@ -13,9 +13,6 @@ export default function Signin() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  // check form input elemtns are valid
-  // email & password
-
   const isInvalid = password === "" || emailAdress === "";
   const handleSignIn = (e) => {
     e.preventDefault();
