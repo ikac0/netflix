@@ -1,7 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import { SelectProfileContainer } from "./profiles.container";
 import { FirebaseContext } from "../context/firebase";
-import { Card, Loading, Header } from "../components";
+import { Card, Loading, Header, Player } from "../components";
+import { FooterContainer } from './footer.container'
 import * as ROUTES from "../constants/routes";
 import logo from "../logo.svg";
 
@@ -57,7 +58,7 @@ export function BrowseContainer({ slides }) {
                 <Header.Group>
                   <Header.Picture src={user.photoURL} />
                   <Header.TextLink>
-                    {user.displayName.toUpperCase()}
+                    {user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1)}
                   </Header.TextLink>
                 </Header.Group>
                 <Header.Group>
@@ -99,15 +100,16 @@ export function BrowseContainer({ slides }) {
                 </Card.Item>
               ))}
             </Card.Entities>
-            {/* <Card.Feature category={category}>
-              <Player>
-                <Player.Button />
-                <Player.Video src="/videos/bunny.mp4" />
-              </Player>
-            </Card.Feature> */}
+            <Card.Feature category={category}>
+                <Player>
+                  <Player.Button />
+                    <Player.Video src="/videos/bunny.mp4" />
+                </Player>
+            </Card.Feature>
           </Card>
         ))}
       </Card.Group>
+    <FooterContainer />
     </>
   ) : (
     <SelectProfileContainer user={user} setProfile={setProfile} />
