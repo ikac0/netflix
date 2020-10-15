@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import Fuse from 'fuse.js';
 import { SelectProfileContainer } from "./profiles.container";
 import { FirebaseContext } from "../context/firebase";
 import { Card, Loading, Header, Player } from "../components";
@@ -25,6 +26,17 @@ export function BrowseContainer({ slides }) {
   useEffect(() => {
     setSlideRows(slides[category]);
   }, [slides, category]);
+
+  useEffect(() => {
+    const fuse = new Fuse(slideRows, { keys: ['data.description', 'data.title', 'data.genre'] });
+    const results = fuse.search(searchTerm).map(({ item }) => item);
+
+    if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
+      setSlideRows(results);
+    } else {
+      setSlideRows(slides[category]);
+    }
+  }, [searchTerm]);
 
   return profile.displayName ? (
     <>
@@ -75,7 +87,7 @@ export function BrowseContainer({ slides }) {
           <Header.Text>
             Forever alone in a crowd, failed comedian Arthur Fleck seeks
             connection as he walks the streets of Gotham City. Arthur wears two
-            masks == the one he paints for his day as a clown, and the guise he
+            masks -- the one he paints for his day as a clown, and the guise he
             projects in a futile attempt to feel like he's part of the world
             around him.
           </Header.Text>
