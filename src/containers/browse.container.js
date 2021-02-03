@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
-import Fuse from 'fuse.js';
+import Fuse from "fuse.js";
 import { SelectProfileContainer } from "./profiles.container";
 import { FirebaseContext } from "../context/firebase";
 import { Card, Loading, Header, Player } from "../components";
-import { FooterContainer } from './footer.container'
+import { FooterContainer } from "./footer.container";
 import * as ROUTES from "../constants/routes";
 import logo from "../logo.svg";
 
@@ -28,7 +28,9 @@ export function BrowseContainer({ slides }) {
   }, [slides, category]);
 
   useEffect(() => {
-    const fuse = new Fuse(slideRows, { keys: ['data.description', 'data.title', 'data.genre'] });
+    const fuse = new Fuse(slideRows, {
+      keys: ["data.description", "data.title", "data.genre"],
+    });
     const results = fuse.search(searchTerm).map(({ item }) => item);
 
     if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
@@ -70,7 +72,8 @@ export function BrowseContainer({ slides }) {
                 <Header.Group>
                   <Header.Picture src={user.photoURL} />
                   <Header.TextLink>
-                    {user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1)}
+                    {user.displayName.charAt(0).toUpperCase() +
+                      user.displayName.slice(1)}
                   </Header.TextLink>
                 </Header.Group>
                 <Header.Group>
@@ -113,15 +116,15 @@ export function BrowseContainer({ slides }) {
               ))}
             </Card.Entities>
             <Card.Feature category={category}>
-                <Player>
-                  <Player.Button />
-                    <Player.Video src="/videos/bunny.mp4" />
-                </Player>
+              <Player>
+                <Player.Button />
+                <Player.Video src="/videos/bunny.mp4" />
+              </Player>
             </Card.Feature>
           </Card>
         ))}
       </Card.Group>
-    <FooterContainer />
+      <FooterContainer />
     </>
   ) : (
     <SelectProfileContainer user={user} setProfile={setProfile} />

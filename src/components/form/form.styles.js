@@ -52,12 +52,12 @@ export const TextSmall = styled.p`
 `;
 
 export const Link = styled(ReactRouterLink)`
-    color: white;
-    text-decoreation: nonel
+  color: white;
+  text-decoreation: none;
 
-    &:hover {
-        text-decoration: nonel
-    }
+  &:hover {
+    text-decoration: none;
+  }
 `;
 
 export const Input = styled.input`

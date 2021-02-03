@@ -8,4 +8,4 @@ export { default as Feature } from "./feature/feature.component";
 export { default as Form } from "./form/form.component";
 export { default as Profiles } from "./profiles/profiles.component";
 export { default as Loading } from "./loading/loading.component";
-export { default as Player } from './player/player.component'
+export { default as Player } from "./player/player.component";
